@@ -1,9 +1,11 @@
-FROM golang:1.9.2-alpine
+FROM golang
 
 ADD . /go/src/github.com/matyga/golang_rest
 RUN go install github.com/matyga/golang_rest
-
+RUN go get github.com/gorilla/mux
 WORKDIR /go/src/github.com/matyga/golang_rest
+
+COPY . .
 
 EXPOSE 8080
 
